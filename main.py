@@ -14,24 +14,27 @@ def show_balances(history):
         net = data["paid"] - data["consumed"]
         print(f"{person}: Paid ${data['paid']:.2f}, Consumed ${data['consumed']:.2f}, Net ${net:.2f}")
 
-def run_round():
-    global history
+def run_round(history):
     payer = get_fairest_payer(users, history)
     total_cost = get_total_cost(users)
     print(f"Today, {payer} will pay ${total_cost:.2f} for everyone.")
-    history = update_balances(users, history, payer)
-    save_history(HISTORY_FILE, history)
+    updated_history = update_balances(users, history, payer)
+    save_history(HISTORY_FILE, updated_history)
+    return updated_history
 
 if __name__ == "__main__":
     validate_users(users)
     history = load_history(HISTORY_FILE, users)
     save_history(HISTORY_FILE, history)
 
+    print("Welcome to the Coffee Tracker!")
+    print("You can type 'pay', 'show', 'add', 'remove', or 'exit' at any time.")
+
     while True:
         try:
             cf_command = input("\n Please type 'pay', 'show', 'add', 'remove', or 'exit': ").strip().lower()
             if cf_command == "pay":
-                run_round()
+                history = run_round(history) #Tesitng this out
             elif cf_command == "show":
                 show_balances(history)
             elif cf_command == "add":
@@ -53,11 +56,9 @@ if __name__ == "__main__":
                 break
             else:
                 print("Unknown command. Please only use: pay, show, add, remove, exit.")
-        except EOFError:
-            print("\nExiting- EOF (Ctrl+D).")
-            break
+                #dont need this tbh..overkill..
         except KeyboardInterrupt:
-            print("\nExiting- keyboard interruption (Ctrl+C).")
+            print("\nExiting — keyboard interruption (Ctrl+C).")
             break
         except Exception as e:
             print(f"[Error] {e}")
