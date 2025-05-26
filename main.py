@@ -27,8 +27,15 @@ if __name__ == "__main__":
     history = load_history(HISTORY_FILE, users)
     save_history(HISTORY_FILE, history)
 
-    print("Welcome to the Coffee Tracker!")
-    print("You can type 'pay', 'show', 'add', 'remove', or 'exit' at any time.")
+    print("Welcome to the Coffee Payment Tracker!")
+    print("This tool helps your group track who should pay for coffee, making sure everyone pays their fair share.")
+    print()
+    print("Available commands:")
+    print("  pay- Pick the fairest payer and run a coffee round")
+    print("  show- Show the current balances for all users")
+    print("  add- Add a new coworker and their drink price")
+    print("  remove - Remove a coworker from the tracker")
+    print("  exit- Save and exit the program")
 
     while True:
         try:
