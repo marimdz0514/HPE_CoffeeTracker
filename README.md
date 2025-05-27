@@ -5,7 +5,7 @@ A command-line Python tool to help you and your coworkers decide who should pay 
 ## Features
 
 - Tracks each person’s total payments and consumption.
-- Always picks the fairest person to pay next (the one with the lowest net balance r at random if tied).
+- Always picks the fairest person to pay next (the one with the lowest net balance or at random if tied).
 - Data isstored in `data/history.json` for persistence between runs.
 - Add/remove users dynamically.
 - Simple, intuitive CLI—no external dependencies.

@@ -62,7 +62,7 @@ if __name__ == "__main__":
                 print("Bye-bye! Have a great coffee break!")
                 break
             else:
-                print("Unknown command. Please only use: pay, show, add, remove, exit.")
+                print("Unknown command. Please only type: pay, show, add, remove, exit.")
                 #dont need this tbh..overkill..
         except KeyboardInterrupt:
             print("\nExiting — keyboard interruption (Ctrl+C).")

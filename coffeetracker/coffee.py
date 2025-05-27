@@ -5,7 +5,7 @@ users = {
     "Jim": 3.00,       
     "Pam": 4.25,       
     "Dwight": 3.75,    
-    "Micheal": 5.00,   
+    "Michael": 5.00,   
     "Stanley": 4.00,   
     "Angela": 4.10
 }
@@ -24,7 +24,7 @@ def get_total_cost(users):
 
 def get_fairest_payer(users, history):
     if not users:
-        raise ValueError("Usser list is empty. Please add at least one coworker's name..")
+        raise ValueError("User list is empty. Please add at least one coworker's name..")
 
     net_balances = {}
     for name in users:
